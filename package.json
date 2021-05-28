@@ -2,6 +2,10 @@
   "name": "gatsby-plugin-beast-modal",
   "version": "0.0.1",
   "license": "MIT",
+  "author": "Andrei T. Ferreira - @tsaristbomba",
+  "bugs": {
+    "url": "https://github.com/tsaristbomba/beast-modal/issues"
+  },
   "dependencies": {
     "babel-plugin-styled-components": "^1.12.0",
     "gatsby-plugin-image": "^1.5.0",

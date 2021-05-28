@@ -79,8 +79,6 @@ const Modal = ({ image, alt, setOpen, open, rounded, background = "#333" }) => {
     handleBlockScroll(false);
   }
 
-  console.log(wrapperRef);
-
   return (
     <Overlay background={background}>
       <CloseIcon onClick={handleClose}>{/* <RiCloseFill /> */}X</CloseIcon>

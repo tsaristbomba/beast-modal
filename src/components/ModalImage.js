@@ -36,8 +36,8 @@ const ModalImage = ({ rounded, image, alt }) => {
 
       {open && (
         <Modal
-          openModal={open}
-          setOpenModal={setOpen}
+          open={open}
+          setOpen={setOpen}
           image={image}
           alt={alt}
           rounded="true"
