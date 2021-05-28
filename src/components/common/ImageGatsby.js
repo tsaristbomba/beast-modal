@@ -2,7 +2,6 @@ import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import handleHexToRgba from "../../functions/handleHexToRgba";
-// import useFilterImage from "../../functions/useFilterImage";
 
 const Img = styled(GatsbyImage)`
   width: ${({ small }) => (small ? "150px !important" : "100% !important")};

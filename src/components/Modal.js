@@ -2,10 +2,9 @@ import React from "react";
 import GatsbyImage from "./common/ImageGatsby";
 import styled from "styled-components";
 import handleHexToRgba from "../functions/handleHexToRgba";
-// import { RiCloseFill } from "@react-icons/all-files/ri/RiCloseFill";
+ import { RiCloseFill } from "@react-icons/all-files/ri/RiCloseFill";
 import handleBlockScroll from "../functions/handleBlockScroll";
 import useOutsideClick from "../functions/useOutsideClick";
-// import { GlobalStateContext } from "../context/GlobalContextProvider";
 
 const Overlay = styled.div`
   position: fixed;
@@ -18,7 +17,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: ${(props) => handleHexToRgba(props.background, 0.7)};
+  background: ${(props) => handleHexToRgba(props.colors.background, 0.7)};
   animation: 0.2s fade;
 `;
 const ImgWrapper = styled.div`
@@ -46,23 +45,26 @@ const CloseIcon = styled.button`
   top: 80px;
   right: 0;
   margin-right: 1rem;
-  color: #fff;
+  color: ${(props) => props.colors.primary};
 
-  /* svg {
-    color: #fff;
+  svg {
+    color: ${(props) => props.colors.primary};
     font-size: 1.8rem;
 
-    
-     :hover {
-      color: ${(props) => props.theme.colors.primary};
-    } 
-  } */
+    :hover {
+      color: ${(props) => props.colors.secondary};
+    }
+  }
 `;
 
-const Modal = ({ image, alt, setOpen, open, rounded, background = "#333" }) => {
-  //   const { open, imageId, imageAlt, setOpen } =
-  //     React.useContext(GlobalStateContext);
-
+const Modal = ({
+  image,
+  alt,
+  setOpen,
+  open,
+  rounded,
+  colors = { background: "#333", primary: "#333", secondary: "#fff" },
+}) => {
   let wrapperRef = React.useRef("modal");
   useOutsideClick(wrapperRef, handleClose);
 
@@ -80,8 +82,10 @@ const Modal = ({ image, alt, setOpen, open, rounded, background = "#333" }) => {
   }
 
   return (
-    <Overlay background={background}>
-      <CloseIcon onClick={handleClose}>{/* <RiCloseFill /> */}X</CloseIcon>
+    <Overlay  colors={colors}>
+      <CloseIcon onClick={handleClose} colors={colors}>
+        <RiCloseFill /> 
+      </CloseIcon>
       <ImgWrapper id="modal" ref={wrapperRef}>
         <ContentWrapper duration={300}>
           <GatsbyImage
