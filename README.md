@@ -77,6 +77,8 @@ export default Index;
 | rounded   | Rounded Image (4px). It only accepts strings,</br> so "true" or "false" (styled-components) | "false"                                                                        |
 | image     | `gatsby-plugin-image` query object                                                          | none                                                                           |
 | colors    | colors object                                                                               | {</br> background: "#333", </br>primary: "#333",</br> secondary: "#fff" </br>} |
+| width     | Width of the image                                                                          | 100%                                                                           |
+| height    | Height of the image                                                                         | 100%                                                                           |
 
 ## Utils
 

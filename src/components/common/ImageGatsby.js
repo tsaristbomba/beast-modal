@@ -1,7 +1,6 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
-import handleHexToRgba from "../../functions/handleHexToRgba";
 
 const Img = styled(GatsbyImage)`
   width: ${({ small, width }) =>
