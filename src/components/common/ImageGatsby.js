@@ -4,9 +4,10 @@ import styled from "styled-components";
 import handleHexToRgba from "../../functions/handleHexToRgba";
 
 const Img = styled(GatsbyImage)`
-  width: ${({ small }) => (small ? "150px !important" : "100% !important")};
-  height: ${({ small, forceheight }) =>
-    small ? "150px !important" : forceheight ? "100% !important" : "auto"};
+  width: ${({ small, width }) =>
+    small ? "150px !important" : `${width} !important`};
+  height: ${({ small, forceheight, height }) =>
+    small ? "150px !important" : forceheight ? `${height} !important` : "auto"};
   animation: 0.2s fade;
   overflow: hidden;
   max-height: ${({ wide }) => (wide ? "600px" : "none")};
@@ -15,19 +16,29 @@ const Img = styled(GatsbyImage)`
     shadow
       ? "rgba(17, 17, 26, 0.2) 0px 1px 0px, rgba(17, 17, 26, 0.2) 0px 8px 24px, rgba(17, 17, 26, 0.2) 0px 16px 48px !important"
       : "none"};
+  /* margin: 0 auto !important; */
 
   div {
     justify-content: center;
     border-radius: ${({ rounded }) => (rounded ? "4px !important" : "0")};
-    height: ${({ small, forceheight }) =>
-      small ? "150px !important" : forceheight ? "100% !important" : "auto"};
-    margin: 0 !important;
+    height: ${({ small, forceheight, height }) =>
+      small
+        ? "150px !important"
+        : forceheight
+        ? `${height} !important`
+        : "auto"};
+    /* margin: 0 auto !important; */
   }
 
   img {
-    width: ${({ small }) => (small ? "150px !important" : "100%")};
-    height: ${({ small, forceheight }) =>
-      small ? "150px !important" : forceheight ? "100% !important" : "auto"};
+    width: ${({ small, width }) =>
+      small ? "150px !important" : `${width} !important`};
+    height: ${({ small, forceheight, height }) =>
+      small
+        ? "150px !important"
+        : forceheight
+        ? `${height} !important`
+        : "auto"};
     margin: 0 auto;
     align-self: center;
     border-radius: ${({ rounded }) => (rounded ? "4px !important" : "0")};
@@ -43,16 +54,10 @@ const Img = styled(GatsbyImage)`
   @media screen and (min-width: 768px) {
     border-radius: ${({ rounded }) => (rounded ? "4px !important" : "0")};
     cursor: ${({ cursor }) => (cursor ? "pointer" : "auto")};
-    /* box-shadow: ${({ shadow }) =>
-      shadow
-        ? `0px 2px 50px 0px ${handleHexToRgba("#333", 0.3)} !important`
-        : "none"}; */
-
-    /* max-height: ${({ limit }) => (limit ? "350px !important" : "100%")}; */
 
     img {
       max-width: ${({ wide }) => (wide ? "55vw !important" : "none")};
-      margin: 0;
+      /* margin: 0; */
     }
   }
 `;
@@ -68,6 +73,8 @@ const Image = ({
   layout,
   wide,
   forceheight,
+  width = "100%",
+  height = "100%",
 }) => {
   return (
     <Img
@@ -81,6 +88,9 @@ const Image = ({
       layout={layout}
       wide={wide}
       forceheight={forceheight}
+      width={width}
+      height={height}
+      style={{ margin: "0 auto !important" }}
     />
   );
 };

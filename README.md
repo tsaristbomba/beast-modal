@@ -107,4 +107,4 @@ If you pass `true` as the second argument, the query will have `transformOptions
 
 ### Note
 
-The helper hook `useModalHelper` can't be called inside a callback. It is against [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
+The helper hook `useModalHelper` can't be called inside a callback. It is against [rules of hooks](https://reactjs.org/docs/hooks-rules.html).

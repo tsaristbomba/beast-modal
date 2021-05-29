@@ -2,8 +2,10 @@ import React from "react";
 import ImageGatsby from "./common/ImageGatsby";
 import Modal from "./Modal";
 
-const ModalImage = ({ rounded, image, alt, colors, shadow }) => {
+const ModalImage = ({ rounded, image, alt, colors, shadow, width, height }) => {
   const [open, setOpen] = React.useState(false);
+
+  console.log(width);
 
   return (
     <>
@@ -15,6 +17,8 @@ const ModalImage = ({ rounded, image, alt, colors, shadow }) => {
         onClick={() => setOpen(true)}
         cursor="true"
         shadow={shadow}
+        width={width}
+        height={height}
       />
 
       {open && (
