@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-plugin-beast-modal",
-  "version": "0.0.1",
+  "name": "@tsaristbomba/gatsby-plugin-beast-modal",
+  "version": "0.0.3",
   "license": "MIT",
-  "author": "Andrei T. Ferreira - @tsaristbomba",
+  "author": "Andrei T. Ferreira <@tsaristbomba>",
   "bugs": {
     "url": "https://github.com/tsaristbomba/beast-modal/issues"
   },

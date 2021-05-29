@@ -5,8 +5,6 @@ import Modal from "./Modal";
 const ModalImage = ({ rounded, image, alt, colors, shadow, width, height }) => {
   const [open, setOpen] = React.useState(false);
 
-  console.log(width);
-
   return (
     <>
       <ImageGatsby
