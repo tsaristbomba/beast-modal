@@ -2,7 +2,9 @@
 ✳️gatsby-plugin-beast-modal
 </h1>
 
+<p align="center">
 A [Gatsby](https://github.com/gatsbyjs/gatsby) plugin for easy modal display with gatsby-plugin-image.
+</p>
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/13293669/125135970-46335f00-e0e0-11eb-9e39-e780f14be26f.gif" height="300" />
