@@ -1,8 +1,10 @@
-# gatsby-plugin-beast-modal
+<h1 align="center">
+✳️gatsby-plugin-beast-modal
+</h1>
 
 A [Gatsby](https://github.com/gatsbyjs/gatsby) plugin for easy modal display with gatsby-plugin-image.
 
-## Install
+## ✅Install
 
 `npm install @tsaristbomba/gatsby-plugin-beast-modal`
 
@@ -10,7 +12,7 @@ You will also need `gatsby-source-filesystem`
 
 `npm install gatsby-source-filesystem`
 
-## How to use
+## ✅How to use
 
 Edit `gatsby-config.js`:
 
@@ -70,7 +72,7 @@ const Index = () => {
 export default Index;
 ```
 
-## Attributes
+## ✅Attributes
 
 | Attribute | Description                                                                                 | Default                                                                        |
 | --------- | :------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------- |
@@ -80,7 +82,7 @@ export default Index;
 | width     | Width of the image                                                                          | 100%                                                                           |
 | height    | Height of the image                                                                         | 100%                                                                           |
 
-## Utils
+## ✅Utils
 
 There is a helper hook `useModalHelper` if you don't want to query the graphql yourself. The hook query's for any string that is passed as an argument as close as possible to the file name of the actual image:
 
@@ -107,6 +109,6 @@ export default Index;
 
 If you pass `true` as the second argument, the query will have `transformOptions: { grayscale: true }` in `gatsbyImageData` options. So the image will be grayscaled.
 
-### Note
+### ✔️Note
 
 The helper hook `useModalHelper` can't be called inside a callback. It is against [rules of hooks](https://reactjs.org/docs/hooks-rules.html).
