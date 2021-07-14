@@ -1,4 +1,4 @@
-export default (hex, opacity) => {
+export default (hex: string, opacity: number): string => {
   let result = hex
     .replace(
       /^#?([a-f\d])([a-f\d])([a-f\d])$/i,

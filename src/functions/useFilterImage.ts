@@ -1,8 +1,29 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-const useFilterImage = (src: string, grayscale: boolean) => {
-  let arr;
-  let image;
+const useFilterImage = (src: string, grayscale: boolean): object => {
+  //Types
+  type ImageData = {
+    gatsbyImageData: {
+      images: {
+        fallback: {
+          src: string;
+        };
+      };
+    };
+  };
+  //  type ArrayData = {
+  //    gatsbyImageData: {
+  //      images: {
+  //        fallback: {
+  //          src: string;
+  //        };
+  //      };
+  //    };
+  //  }
+  //  [];
+
+  let image: ImageData;
+  let arr: any;
 
   const query = useStaticQuery(graphql`
     query {
@@ -22,20 +43,18 @@ const useFilterImage = (src: string, grayscale: boolean) => {
     }
   `);
 
-  console.log(arr);
-
   if (grayscale) {
     arr = query.grayscale.nodes;
     image = arr.find((item) =>
       item.gatsbyImageData.images.fallback.src.includes(src)
     );
+
     return image !== undefined && image.gatsbyImageData;
   } else {
     arr = query.allImageSharp.nodes;
     image = arr.find((item) =>
       item.gatsbyImageData.images.fallback.src.includes(src)
     );
-    console.log(image);
 
     return image !== undefined && image.gatsbyImageData;
   }

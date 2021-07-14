@@ -1,11 +1,29 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
+
 import GatsbyImage from "./common/ImageGatsby";
-import styled from "styled-components";
+import styled, { StyledProps } from "styled-components";
 import handleHexToRgba from "../functions/handleHexToRgba";
- import { RiCloseFill } from "@react-icons/all-files/ri/RiCloseFill";
+import { RiCloseFill } from "@react-icons/all-files/ri/RiCloseFill";
 import handleBlockScroll from "../functions/handleBlockScroll";
 import useOutsideClick from "../functions/useOutsideClick";
 
+// Types
+type ModalProps = {
+  image: object;
+  alt: string;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  open: boolean;
+  rounded: boolean;
+  colors: { background: string; primary: string; secondary: string };
+  duration?: number;
+  ref?: boolean;
+};
+
+type StyledTypes = StyledProps<{
+  colors?: { background: string; primary: string; secondary: string };
+}>;
+
+// Styled components
 const Overlay = styled.div`
   position: fixed;
   z-index: 12;
@@ -17,10 +35,11 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: ${(props) => handleHexToRgba(props.colors.background, 0.7)};
+  background: ${(props: StyledTypes) =>
+    handleHexToRgba(props.colors.background, 0.7)};
   animation: 0.2s fade;
 `;
-const ImgWrapper = styled.div`
+const ImgWrapper = styled.div<{ ref: any }>`
   display: flex;
   margin: 0 10px;
 
@@ -31,10 +50,10 @@ const ImgWrapper = styled.div`
     padding: 0;
   }
 `;
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.div<{ duration: number }>`
   box-shadow: 3px 5px 7px ${() => handleHexToRgba("#333", 0.4)};
 `;
-const CloseIcon = styled.button`
+const CloseIcon = styled.button<StyledTypes>`
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -45,19 +64,19 @@ const CloseIcon = styled.button`
   top: 80px;
   right: 0;
   margin-right: 1rem;
-  color: ${(props) => props.colors.primary};
+  color: ${(props: StyledTypes) => props.colors.primary};
 
   svg {
-    color: ${(props) => props.colors.primary};
+    color: ${(props: StyledTypes) => props.colors.primary};
     font-size: 1.8rem;
 
     :hover {
-      color: ${(props) => props.colors.secondary};
+      color: ${(props: StyledTypes) => props.colors.secondary};
     }
   }
 `;
 
-const Modal = ({
+const Modal: React.FC<ModalProps> = ({
   image,
   alt,
   setOpen,
@@ -82,18 +101,26 @@ const Modal = ({
   }
 
   return (
-    <Overlay  colors={colors}>
-      <CloseIcon onClick={handleClose} colors={colors}>
-        <RiCloseFill /> 
+    <Overlay
+      colors={{
+        background: colors.background,
+        primary: colors.primary,
+        secondary: colors.secondary,
+      }}
+    >
+      <CloseIcon
+        onClick={handleClose}
+        colors={{
+          background: colors.background,
+          primary: colors.primary,
+          secondary: colors.secondary,
+        }}
+      >
+        <RiCloseFill />
       </CloseIcon>
       <ImgWrapper id="modal" ref={wrapperRef}>
         <ContentWrapper duration={300}>
-          <GatsbyImage
-            rounded={rounded}
-            image={image}
-            alt={alt}
-            forceheight="true"
-          />
+          <GatsbyImage rounded={rounded} image={image} alt={alt} forceheight />
         </ContentWrapper>
       </ImgWrapper>
     </Overlay>

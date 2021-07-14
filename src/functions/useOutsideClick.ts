@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 
-function useOutsideClick(ref, action) {
+function useOutsideClick(ref: any, action: () => void) {
   ref === undefined &&
     console.error("ref is not reachable | useOutsideClick hook");
   useEffect(() => {
-    function handleClickOutside(event) {
+    function handleClickOutside(event: { target: object }) {
+      console.log(event);
       if (ref.current && !ref.current.contains(event.target)) {
         action();
       }
