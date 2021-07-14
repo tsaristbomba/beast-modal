@@ -13,7 +13,7 @@ type ModalProps = {
   alt: string;
   setOpen: Dispatch<SetStateAction<boolean>>;
   open: boolean;
-  rounded: boolean;
+  rounded?: boolean;
   colors: { background: string; primary: string; secondary: string };
   duration?: number;
   ref?: boolean;

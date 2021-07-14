@@ -8,9 +8,11 @@
   },
   "keywords": [
     "gatsby",
+    "gatsby-plugin-image",
     "gatsby-plugin",
-    "modal",
-    "gatsby-plugin-image"
+    "react",
+    "typescript",
+    "modal"
   ],
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",

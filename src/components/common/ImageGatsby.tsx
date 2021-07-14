@@ -7,11 +7,10 @@ import styled, { StyledProps } from "styled-components";
 type ImgProps = StyledProps<{
   width?: string;
   height?: string;
-  forceheight?: boolean;
-  rounded?: boolean;
-  shadow?: boolean;
-  scale?: boolean;
-  cursor?: boolean;
+  forceheight?: string;
+  rounded?: string;
+  shadow?: string;
+  cursor?: string;
   image: object;
 }>;
 
@@ -60,10 +59,6 @@ const Img = styled(GatsbyImage)`
     border-radius: ${(props: ImgProps) =>
       props.rounded ? "4px !important" : "0"};
     transition: opacity 0.25s linear, transform 0.2s ease !important;
-
-    :hover {
-      transform: ${(props: ImgProps) => (props.scale ? "scale(1.1)" : "none")};
-    }
   }
 
   @media screen and (min-width: 768px) {
@@ -89,10 +84,10 @@ const Image: React.FC<ImageProps> = ({
       onClick={onClick}
       image={image}
       alt={alt}
-      rounded={rounded}
-      cursor={cursor}
-      shadow={shadow}
-      forceheight={forceheight}
+      rounded={rounded?.toString()}
+      cursor={cursor?.toString()}
+      shadow={shadow?.toString()}
+      forceheight={forceheight.toString()}
       width={width}
       height={height}
       style={{ margin: "0 auto !important" }}
