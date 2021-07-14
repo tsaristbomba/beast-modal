@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-const useFilterImage = (src, grayscale) => {
+const useFilterImage = (src: string, grayscale: boolean) => {
   let arr;
   let image;
 
@@ -22,6 +22,8 @@ const useFilterImage = (src, grayscale) => {
     }
   `);
 
+  console.log(arr);
+
   if (grayscale) {
     arr = query.grayscale.nodes;
     image = arr.find((item) =>
@@ -33,6 +35,8 @@ const useFilterImage = (src, grayscale) => {
     image = arr.find((item) =>
       item.gatsbyImageData.images.fallback.src.includes(src)
     );
+    console.log(image);
+
     return image !== undefined && image.gatsbyImageData;
   }
 };
