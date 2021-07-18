@@ -4,13 +4,13 @@ import Modal from "./Modal";
 
 // Types
 type ModalImageProps = {
-  rounded: boolean;
+  rounded?: boolean;
   image: object;
   alt: string;
   colors: { background: string; primary: string; secondary: string };
-  shadow: boolean;
-  width: string;
-  height: string;
+  shadow?: boolean;
+  width?: string;
+  height?: string;
 };
 
 const ModalImage: React.FC<ModalImageProps> = ({
