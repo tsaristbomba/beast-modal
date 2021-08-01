@@ -52,6 +52,7 @@ const ImgWrapper = styled.div<{ ref: any }>`
 `;
 const ContentWrapper = styled.div<{ duration: number }>`
   box-shadow: 3px 5px 7px ${() => handleHexToRgba("#333", 0.4)};
+  position: relative;
 `;
 const CloseIcon = styled.button<StyledTypes>`
   display: flex;
@@ -61,9 +62,8 @@ const CloseIcon = styled.button<StyledTypes>`
   z-index: 20;
   cursor: pointer;
   position: absolute;
-  top: 80px;
-  right: 0;
-  margin-right: 1rem;
+  top: 6px;
+  right: 6px;
   color: ${(props: StyledTypes) => props.colors.primary};
 
   svg {
@@ -82,7 +82,7 @@ const Modal: React.FC<ModalProps> = ({
   setOpen,
   open,
   rounded,
-  colors = { background: "#333", primary: "#333", secondary: "#fff" },
+  colors = { background: "#333", primary: "#fff", secondary: "#fff" },
 }) => {
   let wrapperRef = React.useRef("modal");
   useOutsideClick(wrapperRef, handleClose);
@@ -108,18 +108,18 @@ const Modal: React.FC<ModalProps> = ({
         secondary: colors.secondary,
       }}
     >
-      <CloseIcon
-        onClick={handleClose}
-        colors={{
-          background: colors.background,
-          primary: colors.primary,
-          secondary: colors.secondary,
-        }}
-      >
-        <RiCloseFill />
-      </CloseIcon>
       <ImgWrapper id="modal" ref={wrapperRef}>
         <ContentWrapper duration={300}>
+          <CloseIcon
+            onClick={handleClose}
+            colors={{
+              background: colors.background,
+              primary: colors.primary,
+              secondary: colors.secondary,
+            }}
+          >
+            <RiCloseFill />
+          </CloseIcon>
           <GatsbyImage rounded={rounded} image={image} alt={alt} forceheight />
         </ContentWrapper>
       </ImgWrapper>
