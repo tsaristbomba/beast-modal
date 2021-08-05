@@ -53,6 +53,7 @@ const ImgWrapper = styled.div<{ ref: any }>`
 const ContentWrapper = styled.div<{ duration: number }>`
   box-shadow: 3px 5px 7px ${() => handleHexToRgba("#333", 0.4)};
   position: relative;
+  margin: 0 auto;
 `;
 const CloseIcon = styled.button<StyledTypes>`
   display: flex;
