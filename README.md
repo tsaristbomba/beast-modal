@@ -5,7 +5,7 @@
 A [Gatsby](https://github.com/gatsbyjs/gatsby) plugin for easy modal display with gatsby-plugin-image.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/13293669/125135970-46335f00-e0e0-11eb-9e39-e780f14be26f.gif" height="300" />
+<img src="https://user-images.githubusercontent.com/13293669/128395464-49a64ebe-9dbf-43c6-8c0b-48aa1cadbd53.gif" height="300" />
 <!-- <img src="https://user-images.githubusercontent.com/13293669/125134435-c1474600-e0dd-11eb-9ca1-3afd72b07a52.gif" height="300" /> -->
 </p>
 
